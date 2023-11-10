@@ -1,0 +1,98 @@
+.main-recipe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 28vh 0;
+}
+
+.recipe-heading {}
+
+.recipe-button {
+    margin: 0 1rem;
+    border-radius: 50%;
+    border-color: transparent;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.popup {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+
+
+    &__content {
+        box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+        border-radius: 2rem;
+        background-color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 95vh;
+        width: 60%;
+    }
+
+    &__file {
+       width: 50%;   
+    }
+
+    &__title {
+        padding: 1rem;
+        width: 100%;
+        margin-top: 10px;
+        border-color: black;
+        border: 2px solid;
+    }
+
+    &__desc {
+        padding: 1rem;
+        width: 100%;
+        height: 30vh;
+        margin-top: 10px;
+        border-color: black;
+        border: 2px solid;
+    }
+
+    &__dropdown {
+        margin-top: 2rem;
+        
+    select{
+        padding: 10px;
+        border-radius: 10px;
+        margin-left: 1rem;
+    }
+    select:hover{
+        
+    }
+    }
+
+    &__button {
+        margin-top: 2rem;
+        padding: .8rem;
+        background-color: black;
+        color: white;
+        border-radius: 4px;
+        border: 2px solid;
+    }
+
+}
+
+#myfile {
+    color: transparent;
+}
+
+input[type='file']::after {
+    content: 'Pick an image';
+    color: black;    
+}
+
+.todolist {
+    background-color: rgb(132, 213, 213);
+    display: grid;
+    margin-top: -10rem;
+}

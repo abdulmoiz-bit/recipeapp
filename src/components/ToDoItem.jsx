@@ -11,6 +11,7 @@ const ToDoItem = ({todoitem, handleDelete}) => {
       <p className='todoitem__desc'>{todoitem.desc}</p>
       <button className='todoitem__button' onClick={()=>handleDelete(todoitem)} >Delete</button>
       <button className='todoitem__button'>Edit</button>
+      <a href="">View</a>
     </div>
   
   )

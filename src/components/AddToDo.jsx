@@ -1,38 +1,43 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import ToDoItem from './ToDoItem';
+import uniqueId from 'lodash/uniqueId';
 import "./AddToDo.scss"
 
-const AddToDo = ({ todos, handleDelete, addList }) => {
-
-  //const [image, setImage] = useState();
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
-  //const [category, setCategory] = useState("");
-  const [modal, showModal] = useState(false);
-
+/*
   const [form, setForm] = useState({
     image: "",
     title: "",
     desc: "",
     category: "",
   })
+*/
+
+const AddToDo = ({ todos, handleDelete, addList }) => {
+
+  const [messageId] = useState(uniqueId('message-'));
+
+  const hiddenFileInput = useRef(null);
+ // const [image, setImage] = useState("");
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
+  const [category, setCategory] = useState("");
+  const [modal, showModal] = useState(false);
 
   const addTodo = (e) => {
     e.preventDefault();
-    if (!title | !desc) {
+    showModal();
+    if (!title | !desc | !category) {
       alert("cant be blanked")
     } else {
-      addList(title, desc)
+      addList(title, desc, category)
       setTitle("");
       setDesc("");
+      setCategory("");
     }
   }
-  /*
-  const handleClick = () => {
-    addTodo;
-    showModal();
-  }
-*/
+ const handleImageChange = () => {
+
+ }
   return (
     <>
       <div className='main-recipe'>
@@ -42,15 +47,17 @@ const AddToDo = ({ todos, handleDelete, addList }) => {
           modal && (
             <div className='popup'>
               <form className='popup__content' action="/action_page.php" onSubmit={addTodo}>
-                <input className='popup__file' type="file" id="myfile" name="filename" /> <br />
+                <input className='popup__file' type="file" name="filename"
+                 onChange={handleImageChange}
+                 ref={hiddenFileInput}
+                 /> <br />
                 <h1 style={{marginTop: "2rem"}}>Title</h1>
-                <input className='popup__title' type="text" placeholder='Title' value={title} onChange={(e) => setTitle(e.target.value)} /> <br />
+                <input id={messageId} className='popup__title' type="text" placeholder='Title' value={title} onChange={(e) => setTitle(e.target.value)} /> <br />
                 <h1 style={{marginTop: "2rem"}}>Description</h1>
                 <textarea className='popup__desc' type="text" placeholder='Desc' value={desc} onChange={(e) => setDesc(e.target.value)}/ > <br/>
                 <div className='popup__dropdown'>
-                <label for="food">Choose a Category</label>
-                <select name="foods" id="food">
-                  <option value="traditional">Traditional</option>
+                <select name="foods" id="food" value={category} onChange={e => setCategory(e.target.value)}>
+                  <option value="traditional">Choose a Category </option>
                   <option value="fast food">Fast Food</option>
                   <option value="sea food">Sea Food</option>
                   <option value="soup">Soup</option>
@@ -69,7 +76,7 @@ const AddToDo = ({ todos, handleDelete, addList }) => {
       <div className='todolist'>
         {
           todos.map((item) => {
-            return <ToDoItem key={item.id} todoitem={item} handleDelete={handleDelete} />
+            return <ToDoItem key={messageId} todoitem={item} handleDelete={handleDelete} />
           })
         }
       </div>

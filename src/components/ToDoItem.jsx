@@ -6,7 +6,7 @@ const ToDoItem = ({todoitem, handleDelete}) => {
   return (
     <div className="todoitem">
       <img className='todoitem__image' src="" alt="" />
-      <h1 className='todoitem__category-heading'></h1>
+      <h2 className='todoitem__category-heading'>{todoitem.category}</h2>
       <h1 className='todoitem__title'>{todoitem.title}</h1>
       <p className='todoitem__desc'>{todoitem.desc}</p>
       <button className='todoitem__button' onClick={()=>handleDelete(todoitem)} >Delete</button>

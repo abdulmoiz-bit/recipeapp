@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10vh 0;
+    margin-top: 20vh;
 }
 
 .recipe-heading {}
@@ -38,7 +38,7 @@
     }
 
     &__file {
-        color: transparent; 
+        color: transparent;
     }
 
     &__title {
@@ -60,12 +60,12 @@
 
     &__dropdown {
         margin-top: 2rem;
-        
-    select{
-        padding: 10px;
-        border-radius: 10px;
-        margin-left: 1rem;
-    }
+
+        select {
+            padding: 10px;
+            border-radius: 10px;
+            margin-left: 1rem;
+        }
     }
 
     &__button {
@@ -79,16 +79,16 @@
 
 }
 
-input[type='file']::after {
-    content: 'Pick an image';
-    color: black;    
+.todolist {
+   min-height: 30vh;
+   background-color: rgb(114, 102, 102);
+   margin-top: 3rem;
+
+    &__items {
+        min-height: 20vh;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+        gap: 1rem;
+    }
 }
 
-.todolist {
-    background-color: rgb(132, 213, 213);
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-    margin-top: -8rem; 
-    gap: 1rem;
-    padding: 1rem;
-}

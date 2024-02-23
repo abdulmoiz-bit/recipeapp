@@ -79,16 +79,4 @@
 
 }
 
-.todolist {
-   min-height: 30vh;
-   background-color: rgb(114, 102, 102);
-   margin-top: 3rem;
-
-    &__items {
-        min-height: 20vh;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-        gap: 1rem;
-    }
-}
 
